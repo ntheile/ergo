@@ -9,10 +9,12 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, Tray, Menu } from 'electron';
+import { app, BrowserWindow, Tray, Menu, remote } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+declare let global: any;
+
 
 export default class AppUpdater {
   constructor() {
@@ -24,6 +26,9 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 let tray: Tray | null = null;
+
+
+
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -72,12 +77,15 @@ const createWindow = async () => {
     webPreferences:
       process.env.NODE_ENV === 'development' || process.env.E2E_BUILD === 'true'
         ? {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webSecurity: false
           }
         : {
             preload: path.join(__dirname, 'dist/renderer.prod.js')
           }
   });
+
+  global.mainWindow = mainWindow;
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -97,6 +105,20 @@ const createWindow = async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  mainWindow.on('move',(e) =>{
+    console.log('electron move');
+  });
+  mainWindow.on('minimize',(e) =>{
+      console.log('electron minimize');
+  });
+  mainWindow.on('maximize',(e) =>{
+      console.log('electron maximize');
+  });
+  mainWindow.on('restore',(e) =>{
+     mainWindow?.show();
+      console.log('electron restore');
   });
 
   const menuBuilder = new MenuBuilder(mainWindow);
@@ -126,3 +148,6 @@ app.on('activate', () => {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
 });
+
+app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
+

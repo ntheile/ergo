@@ -10,3 +10,15 @@
 .container a {
   font-size: 1.4rem;
 }
+
+.min {
+  background-color: #FFBD44;
+  width: 16px; 
+  height: 16px;
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

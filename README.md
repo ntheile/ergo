@@ -2,6 +2,15 @@
 
 <br>
 
+Ergo Motivational Quotes Library
+
+Funny/Sarcastic lib
+- 20 min break time...get off your lazy ass and walk to the kitchen for a glass of high quality h20 [imsert meme of water boy "you can do it"]
+- You aint nothing but a peanut lightweight [insert ronnie coleman meme]
+
+Motivational lib
+- You are strong... blah blah motivational shit
+
 <p>
   Electron React Boilerplate uses <a href="https://electron.atom.io/">Electron</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/reactjs/redux">Redux</a>, <a href="https://github.com/reactjs/react-router">React Router</a>, <a href="https://webpack.github.io/docs/">Webpack</a> and <a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a> for rapid application development (HMR).
 </p>

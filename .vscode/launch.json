@@ -1,0 +1,14 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+        {
+            "name": "Attach ",
+            "type": "node",
+            "request": "attach",
+            "restart": true,
+            "port": 9229,
+            "outFiles": [],
+            "sourceMaps": true
+        },
+    ]
+ }
