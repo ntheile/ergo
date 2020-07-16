@@ -22,3 +22,15 @@
   justify-content: center;
   cursor: pointer;
 }
+
+.x {
+  background-color: grey;
+  width: 16px; 
+  height: 16px;
+  border-radius: 8px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

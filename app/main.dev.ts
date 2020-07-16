@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint global-require: off, no-console: off */
 
 /**
@@ -8,13 +9,19 @@
  * When running `yarn build` or `yarn build-main`, this file is compiled to
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
-import path from 'path';
-import { app, BrowserWindow, Tray, Menu, remote } from 'electron';
+import * as path from 'path';
+import { app, BrowserWindow, Tray, Menu, nativeImage } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+// @ts-ignore
+import trayIcon from './img/ergo26.png';
+
 declare let global: any;
 
+const unhandled = require('electron-unhandled');
+ 
+unhandled()
 
 export default class AppUpdater {
   constructor() {
@@ -26,9 +33,6 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 let tray: Tray | null = null;
-
-
-
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -60,7 +64,11 @@ const createWindow = async () => {
     await installExtensions();
   }
 
-  tray = new Tray(`${__dirname}/assets/ergo26.png`);
+
+  const iconPath = path.join(__dirname, 'img/ergo26.png');
+  let nimage = nativeImage.createFromPath(iconPath);
+  nimage = nimage.resize({ width: 16, height: 16 });
+  tray = new Tray(nimage);
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Play', type: 'radio' },
     { label: 'Pause', type: 'radio' },
@@ -107,18 +115,19 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  mainWindow.on('move',(e) =>{
-    console.log('electron move');
+  mainWindow.on('move', ( e:any ) => {
+    console.log('electron move', e);
   });
-  mainWindow.on('minimize',(e) =>{
-      console.log('electron minimize');
+
+  mainWindow.on('minimize',( e:any ) =>{
+      console.log('electron minimize', e);
   });
-  mainWindow.on('maximize',(e) =>{
-      console.log('electron maximize');
+  mainWindow.on('maximize',(e:any) =>{
+      console.log('electron maximize', e);
   });
-  mainWindow.on('restore',(e) =>{
+  mainWindow.on('restore',(e:any) =>{
      mainWindow?.show();
-      console.log('electron restore');
+      console.log('electron restore', e);
   });
 
   const menuBuilder = new MenuBuilder(mainWindow);

@@ -11,6 +11,27 @@ Funny/Sarcastic lib
 Motivational lib
 - You are strong... blah blah motivational shit
 
+- Reminders
+  - workout at noon
+  - drink water
+
+- breaks
+  - eye yoga
+    - 20 seconds bouncing balls to follow
+  - guided meditation
+    - 20 second guided med
+    - 2 min guided med
+  - eye strain relieve 20-20-20
+    - giphy of somebody staring far away
+
+- take breaks with your team
+  - free for 30 days
+  - then beg for a donation (suggested $4.99) and insert funny image of me (maybe a pic of my niece and beg for disney world money or something). only make 1 member of the team pay for it. be quirky
+  - integrate with webhooks (teams and slack) 
+    -  shared config
+    - the app pop up at the same time
+  - allow team to insert meme/gighy of break activty such as pushing the air or doing goofy yoga
+
 <p>
   Electron React Boilerplate uses <a href="https://electron.atom.io/">Electron</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/reactjs/redux">Redux</a>, <a href="https://github.com/reactjs/react-router">React Router</a>, <a href="https://webpack.github.io/docs/">Webpack</a> and <a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a> for rapid application development (HMR).
 </p>

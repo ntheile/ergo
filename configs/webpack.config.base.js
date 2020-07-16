@@ -20,6 +20,10 @@ export default {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
+        use: 'url-loader'
       }
     ]
   },

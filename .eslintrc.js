@@ -24,7 +24,12 @@ module.exports = {
     "react/button-has-type" :0,
     "jsx-a11y/click-events-have-key-events": 0,
     "eslint-disable-next-line": 0,
-    "no-alert": 0
+    "no-alert": 0,
+    "eslint-disable-next-line": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "jsx-wrap-multilines": 0,
+    "eslint-disable-next-line": 0,
+    "react/jsx-wrap-multilines": 0
   },
   settings: {
     'import/resolver': {
